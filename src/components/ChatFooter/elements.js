@@ -38,7 +38,6 @@ export const StyledFooter = styled.div`
         color: white;
         padding: 10px;
         font-size: 16px;
-        transiti
     }
 
     button {
