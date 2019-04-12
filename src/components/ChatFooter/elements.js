@@ -1,16 +1,32 @@
-import styled from 'styled-components';
+import React from 'react'
+import styled, {keyframes} from 'styled-components';
+
+const heightToggled = `
+    height: 0%; 
+    padding: 0px;
+    opacity: 0;
+    visible: hidden;
+`
+
+const height = `
+    height: 20%; 
+    padding: 10px;
+    opacity: 1;
+    visible: visible;
+`
 
 export const StyledFooter = styled.div`
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 20%;
 
-    padding: 10px;
+    ${props => props.toggle === true ? heightToggled : height}   
 
     border-radius: 0px 0px 4px 4px;
     background-color: rgba(0,0,0,.03);
+
+	transition: all 0.5s ease;
 
     input {
         width: 100%;
@@ -52,3 +68,11 @@ export const StyledFooter = styled.div`
         }
     }
 `;
+
+const head = ({toggle, children}) => (
+    <StyledFooter
+        toggle={toggle}
+    >
+        {children}
+    </StyledFooter>
+)

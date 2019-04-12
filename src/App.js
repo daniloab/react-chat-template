@@ -39,15 +39,21 @@ function getQuote(numberMessages) {
 class App extends Component {
   state = {
     name: randomName(),
-    messages: getQuote(5)
+    messages: [],
+    toggleChat: false
   }
 
-  onSubmitMessage = (message) => {
+  onSubmitMessage = msg => {
     this.setState((prevState) => {
+      const newMessage = {userId: 1, message:msg }
       return {   
-        messages: prevState.messages.push(message)
+        messages: [...prevState.messages, newMessage]
       }
     })
+  }
+
+  handleToggle = () => {
+    this.setState({toggleChat: !this.state.toggleChat})
   }
 
   render() {
@@ -55,15 +61,22 @@ class App extends Component {
       <Fragment>
         <GlobalStyle />
         <Container>
-          <ChatContainer>
-            <ChatHead name={this.state.name}/>
-            <ChatBody>
+          <ChatContainer
+            toggle={this.state.toggleChat}
+          >
+            <ChatHead 
+              name={this.state.name} 
+              toggle={this.state.toggleChat}
+              onClick={this.handleToggle}
+            />
+            <ChatBody toggle={this.state.toggleChat}>
               <Message messages={this.state.messages} />
             </ChatBody>
-            <ChatFooter handleSubmitMessage={this.onSubmitMessage}/>
+            <ChatFooter 
+              toggle={this.state.toggleChat}
+              onSubmitMessage={this.onSubmitMessage}/>
           </ChatContainer>
-        </Container>
-        
+        </Container>        
       </Fragment>
     );
   }
