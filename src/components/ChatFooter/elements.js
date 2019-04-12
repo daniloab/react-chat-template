@@ -5,14 +5,13 @@ const heightToggled = `
     height: 0%; 
     padding: 0px;
     opacity: 0;
-    visible: hidden;
+    display: none;
 `
 
 const height = `
     height: 20%; 
     padding: 10px;
     opacity: 1;
-    visible: visible;
 `
 
 export const StyledFooter = styled.div`
@@ -21,12 +20,12 @@ export const StyledFooter = styled.div`
     align-items: center;
     width: 100%;
 
-    ${props => props.toggle === true ? heightToggled : height}   
+    ${props => props.toggle === true ? heightToggled : height}  
 
     border-radius: 0px 0px 4px 4px;
     background-color: rgba(0,0,0,.03);
 
-	transition: all 0.5s ease;
+	transition: all 1s ease;
 
     input {
         width: 100%;
@@ -39,6 +38,7 @@ export const StyledFooter = styled.div`
         color: white;
         padding: 10px;
         font-size: 16px;
+        transiti
     }
 
     button {

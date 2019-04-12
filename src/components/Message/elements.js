@@ -38,9 +38,9 @@ const messageReceivedProps = `
     margin: 0px 5px 5px 5px;
 `
 export const StyledMessage = styled.div`
-    position: relative;
-    padding: 20px 10px;
-    border-radius: 55px;
+    position: relative;    
+    padding: 10px 5px;
+    border-radius: 10px;
     color: black;
 
     ${props => props.type === 'sent' && messageSentProps}

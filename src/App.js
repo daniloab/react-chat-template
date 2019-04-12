@@ -39,7 +39,7 @@ function getQuote(numberMessages) {
 class App extends Component {
   state = {
     name: randomName(),
-    messages: [],
+    messages: getQuote(),
     toggleChat: false
   }
 
